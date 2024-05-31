@@ -4,15 +4,17 @@ public class Book extends Object{
             private String title;
             private String author;
             private String ISBN;
+            private String genre;
             private double price;
             private int qty;
 
             public Book(){}
 
-            public Book(String title, String author, String ISBN, double price, int qty) {
+            public Book(String title, String author, String ISBN, String genre, double price, int qty) {
                 this.title = title;
                 this.author = author;
                 this.ISBN = ISBN;
+                this.genre = genre;
                 this.price = price;
                 this.qty = qty;
             }
@@ -27,6 +29,10 @@ public class Book extends Object{
 
             public String getISBN() {
                 return ISBN;
+            }
+
+            public String getGenre() {
+                return genre;
             }
 
             public double getPrice() {
@@ -48,6 +54,10 @@ public class Book extends Object{
             public void setISBN(String ISBN) {
                 this.ISBN = ISBN;
             }
+
+            public void setGenre(String genre) {
+                this.genre = genre;
+            }
         
             public void setPrice(double price) {
                 this.price = price;
@@ -64,6 +74,6 @@ public class Book extends Object{
             }
 
             public String toString() {
-                return "\nTitle: " + title + "\nAuthor: " + author + "\nISBN: " + ISBN + "\nPrice: RM " + price + "\nQuantity: " + qty + "\nTotal Price: " + calculateTotalPrice();
+                return "\nTitle: " + title + "\nAuthor: " + author + "\nISBN: " + ISBN +  "\nGenre: " + genre + "\nPrice: RM " + price + "\nQuantity: " + qty + "\nTotal Price: " + calculateTotalPrice();
             }
 }    
