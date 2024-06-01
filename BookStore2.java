@@ -9,7 +9,7 @@ public class BookStore2 {
 
         System.out.println("How many books to key in: ");
         size = sc.nextInt();
-        sc.nextLine();
+        sc.nextLine();  
 
         Queue bookQ = new Queue();
         //input books
@@ -145,9 +145,64 @@ public class BookStore2 {
             System.out.println(nonFic.dequeue());
         }
 
+        // Expression conversion using stack
+        System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxx Expression conversion using stack xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        System.out.print("Enter an infix expression: ");
+        String infixExpression = sc.nextLine();
+        String postfixExpression = infixToPostfix(infixExpression);
+        System.out.println("Postfix expression: " + postfixExpression);
 
-         
+    }
+    // Method to convert infix expression to postfix
+    public static String infixToPostfix(String exp) {
+        StringBuilder result = new StringBuilder();
+        Stack stackC = new Stack(); // Using raw stack
 
+        for (int i = 0; i < exp.length(); i++) {
+            char c = exp.charAt(i);
 
+            if (Character.isLetterOrDigit(c)) {
+                result.append(c);
+            } else if (c == '(') {
+                stackC.push(c);
+            } else if (c == ')') {
+                while (!stackC.isEmpty() && (char) stackC.peek() != '(') {
+                    result.append((char) stackC.pop()); // Cast to char
+                }
+                if (!stackC.isEmpty() && (char) stackC.peek() != '(')
+                    return "Invalid Expression";
+                else
+                    stackC.pop();
+            } else {
+                while (!stackC.isEmpty() && precedence(c) <= precedence((char) stackC.peek())) {
+                    if ((char) stackC.peek() == '(')
+                        return "Invalid Expression";
+                    result.append((char) stackC.pop()); // Cast to char
+                }
+                stackC.push(c);
+            }
+        }
+        // pop all the operators from the stack
+        while (!stackC.isEmpty()) {
+            if ((char) stackC.peek() == '(')
+                return "Invalid Expression";
+            result.append((char) stackC.pop()); // Cast to char
+        }
+        return result.toString();
+    }
+
+     // Method to return precedence of operators
+     public static int precedence(char ch) {
+        switch (ch) {
+            case '+':
+            case '-':
+                return 1;
+            case '*':
+            case '/':
+                return 2;
+            case '^':
+                return 3;
+        }
+        return -1;
     }
 }
