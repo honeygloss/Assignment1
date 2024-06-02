@@ -1,4 +1,4 @@
-import Assignment1.LinkedList;
+package Assignment1;
 public class Stack extends LinkedList{
     public Stack(){
         super();
@@ -19,7 +19,7 @@ public class Stack extends LinkedList{
     public boolean isEmpty(){
         return super.isEmpty();
     }
-    public void print(){
-        super.print();
+    public String print(){
+        return super.print();
     }
 }

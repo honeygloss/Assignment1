@@ -74,6 +74,6 @@ public class Book extends Object{
             }
 
             public String toString() {
-                return "\nTitle: " + title + "\nAuthor: " + author + "\nISBN: " + ISBN +  "\nGenre: " + genre + "\nPrice: RM " + price + "\nQuantity: " + qty + "\nTotal Price: " + calculateTotalPrice();
+                return "\nTitle: " + title + "\nAuthor: " + author + "\nISBN: " + ISBN +  "\nGenre: " + genre + "\nPrice: RM " + price + "\nQuantity: " + qty + "\nTotal Price: RM" + calculateTotalPrice();
             }
 }    

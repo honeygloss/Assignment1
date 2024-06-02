@@ -1,6 +1,6 @@
+package Assignment1;
 
 import java.util.*;
-import Assignment1.Book;
 
 public class BookStore2 {
     public static void main(String[] args){

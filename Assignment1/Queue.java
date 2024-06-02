@@ -1,5 +1,4 @@
-import Assignment1.LinkedList;
-
+package Assignment1;
 public class Queue extends LinkedList{
     public Queue(){
         super();
@@ -27,7 +26,7 @@ public class Queue extends LinkedList{
         return super.isEmpty();
     }
 
-    public void print(){
-        super.print();
+    public String print(){
+        return super.print();
     }
 }
